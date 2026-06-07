@@ -481,6 +481,38 @@
     </main>
 
     <script>
+        const dailyVerses = [
+            { verse: "Trust in the Lord with all your heart, and do not lean on your own understanding.", ref: "Proverbs 3:5" },
+            { verse: "The Lord is my shepherd; I shall not want.", ref: "Psalm 23:1" },
+            { verse: "I can do all things through Christ who strengthens me.", ref: "Philippians 4:13" },
+            { verse: "For I know the plans I have for you, declares the Lord, plans to prosper you.", ref: "Jeremiah 29:11" },
+            { verse: "Be strong and courageous. Do not fear or be dismayed, for the Lord your God is with you wherever you go.", ref: "Joshua 1:9" },
+            { verse: "The Lord is near to the brokenhearted and saves the crushed in spirit.", ref: "Psalm 34:18" },
+            { verse: "Your word is a lamp to my feet and a light to my path.", ref: "Psalm 119:105" },
+            { verse: "Cast all your anxiety on him because he cares for you.", ref: "1 Peter 5:7" },
+            { verse: "The Lord will fight for you; you need only to be still.", ref: "Exodus 14:14" },
+            { verse: "And we know that in all things God works for the good of those who love him.", ref: "Romans 8:28" }
+        ];
+
+        function getDailyVerseIndex() {
+            const now = new Date();
+            const midnight = new Date(now.getFullYear(), now.getMonth(), now.getDate()).getTime();
+            const epoch = new Date(2020, 0, 1).getTime();
+            const days = Math.floor((midnight - epoch) / 86400000);
+            return ((days % dailyVerses.length) + dailyVerses.length) % dailyVerses.length;
+        }
+
+        function getDailyVerseForLocale(locale) {
+            // Future localization support can be added here.
+            return dailyVerses[getDailyVerseIndex()];
+        }
+
+        function setCurrentDailyVerse() {
+            const verse = getDailyVerseForLocale(document.getElementById('langSelect').value);
+            document.getElementById('verseText').innerText = verse.verse;
+            document.getElementById('verseRef').innerText = verse.ref;
+        }
+
         // Dictionary mapping localized Bible verses & UI strings per locale/variant
         const languageData = {
             "en-US": {
@@ -780,7 +812,10 @@
             });
         }
 
-        document.addEventListener('DOMContentLoaded', initMenuActions);
+        document.addEventListener('DOMContentLoaded', () => {
+            initMenuActions();
+            setCurrentDailyVerse();
+        });
 
         // Monitors text focus state to alter active layout rules (like RTL for Hebrew)
         function changeLanguage() {
@@ -790,9 +825,9 @@
 
             if (!data) return;
 
-            // Swap out Bible Verse elements
-            document.getElementById("verseText").innerText = data.verse;
-            document.getElementById("verseRef").innerText = data.ref;
+            const verse = getDailyVerseForLocale(selectedLocale);
+            document.getElementById("verseText").innerText = verse.verse;
+            document.getElementById("verseRef").innerText = verse.ref;
 
             // Translate Editor System Menu options
             document.getElementById("menuFile").innerText = data.ui.file;
