@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 · Scripture Docs</title>
+    <style>
+        :root {
+            --bg-main: #f8fafc;
+            --bg-navbar: #ffffff;
+            --bg-panel: #ffffff;
+            --text-main: #0f172a;
+            --text-muted: #64748b;
+            --border-color: #cbd5e1;
+            --primary-color: #2563eb;
+            --shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-main);
+            color: var(--text-main);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            background-color: var(--bg-navbar);
+            border-bottom: 1px solid var(--border-color);
+            padding: 0.75rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        .logo {
+            font-weight: 700;
+            color: var(--primary-color);
+            font-size: 1.2rem;
+        }
+
+        .subtitle {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+        }
+
+        .verse-panel {
+            margin: 2rem auto 0;
+            max-width: 720px;
+            width: calc(100% - 2rem);
+            background: linear-gradient(135deg, #eff6ff, #dbeafe);
+            border: 1px solid #bfdbfe;
+            border-radius: 14px;
+            padding: 1.5rem 1.75rem;
+            box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+        }
+
+        .verse-text {
+            font-size: 1.1rem;
+            line-height: 1.75;
+            color: #1e3a8a;
+            margin-bottom: 0.8rem;
+        }
+
+        .verse-ref {
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: #2563eb;
+        }
+
+        .content {
+            margin: 2rem auto 0;
+            max-width: 720px;
+            width: calc(100% - 2rem);
+            padding: 2rem;
+            background-color: var(--bg-panel);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            box-shadow: var(--shadow);
+        }
+
+        .headline {
+            font-size: clamp(2rem, 4vw, 3rem);
+            line-height: 1.05;
+            letter-spacing: -0.05em;
+            margin-bottom: 0.75rem;
+        }
+
+        .message {
+            font-size: 1rem;
+            color: var(--text-muted);
+            margin-bottom: 1.75rem;
+            line-height: 1.7;
+        }
+
+        .actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+        }
+
+        .button,
+        .link-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.85rem 1.4rem;
+            border-radius: 999px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .button {
+            background-color: var(--primary-color);
+            color: #ffffff;
+            border: 1px solid transparent;
+        }
+
+        .button:hover,
+        .link-button:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 10px 20px rgba(37, 99, 235, 0.15);
+        }
+
+        .link-button {
+            border: 1px solid var(--border-color);
+            color: var(--text-main);
+            background-color: #ffffff;
+        }
+
+        .footer-note {
+            margin-top: 1.5rem;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        @media (max-width: 640px) {
+            .content { padding: 1.5rem; }
+            .verse-panel { padding: 1.25rem; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div>
+            <div class="logo">Scripture Docs</div>
+            <div class="subtitle">A calmer way to navigate scripture writing.</div>
+        </div>
+        <div class="subtitle">404 · Page Not Found</div>
+    </header>
+
+    <section class="verse-panel">
+        <div class="verse-text">"The Lord is near to the brokenhearted and saves the crushed in spirit."</div>
+        <div class="verse-ref">Psalm 34:18</div>
+    </section>
+
+    <main class="content">
+        <h1 class="headline">We couldn't find that page.</h1>
+        <p class="message">The link may be mistyped, or the page may have been moved. Return to the homepage to continue working on your document or explore the Scripture Docs editor from the beginning.</p>
+        <div class="actions">
+            <a class="button" href="/">Go to Homepage</a>
+            <a class="link-button" href="index.html">Open Editor</a>
+        </div>
+        <p class="footer-note">If you reached this page from a saved bookmark, check that the address is correct or use the app's navigation to start again.</p>
+    </main>
+</body>
+</html>
